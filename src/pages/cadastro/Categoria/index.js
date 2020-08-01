@@ -29,9 +29,9 @@ function CadastroCategoria() {
   }
 
   useEffect(() => {
-    console.log('oi');
-
-    const URL_TOP = 'https://akioflix.herokuapp.com/categorias';
+    const URL_TOP = window.location.hostname.includes('localhost')
+      ? 'http://localhost:9000/categorias'
+      : 'https://akioflix.herokuapp.com/categorias';
 
     fetch(URL_TOP).then(async (respostaDoServidor) => {
       const resposta = await respostaDoServidor.json();
